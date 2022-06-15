@@ -36,6 +36,10 @@ const userController = {
   },
   sendSession: (req, res) =>{
     res.status(200).json(req.session.user)
+  },
+  listUsers: (req, res)=>{
+    db.User.findAll()
+      .then(data => res.status(200).json(data))
   }
 }
 module.exports = userController;
